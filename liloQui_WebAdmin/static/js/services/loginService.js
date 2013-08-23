@@ -1,14 +1,15 @@
-﻿adminApp.factory('bookData', function ($rootScope, $http, $log) {
+﻿var LoginService = function ($http) {
     return {
-        getServiceToken: function (rootUrl, successCallback) {
-            $http.get("home/GetToken").
+        getIdentityProviders: function (callback) {
+            $http({ method: 'GET', url: '/identity_providers' }).
                 success(function (data, status, headers, config) {
-                    $rootScope.serviceToken = data;
-                    successCallback();
+                    callback(data);
                 }).
                 error(function (data, status, headers, config) {
-                    $log.warn(data, status, headers, config);
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
                 });
         }
     };
-});
+};
+angular.module('adminApp').factory('Login', ['$http', LoginService]);

@@ -7,6 +7,19 @@
         <link href="css/admin.css" rel="stylesheet" />
     </head>
     <body>
+        <div ng-controller="LoginController" class="login_banner">
+            <span>Logged In: {{loggedIn}}</span>
+            <input type="button" ng-click="getLoginOptions();" value="Login"/>
+            <div ng-show="showLoginWindow">
+                <h1>Login <a href="" ng-click="showLoginWindow = false">(close)</a></h1>
+                <ul>
+                    <li ng-repeat="provider in identityProviders">
+                        {{provider.Name}} <a href="{{provider.LoginUrl}}">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
         <div ng-controller="BooksController">
             <input type="button" ng-click="toggleEditMode()" value="Create Book" />
             <input type="button" ng-click="fetchToken()" value="Fetch Token" />
@@ -63,14 +76,16 @@
 
                 </fieldset>
             </div>
+        </div>
         
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-        <script src="~/js/underscore.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
-        <script src="~/js/angular-resource.js"></script>
-        <script src="~/js/Models/models.js"></script>
-        <script src="~/js/Controllers/app.js"></script>
-        <script src="~/js/Services/bookService.js"></script>
-        <script src="~/js/Controllers/books.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular-resource.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.1/underscore-min.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/models/models.js"></script>
+        <script src="js/services/bookService.js"></script>
+        <script src="js/services/loginService.js"></script>
+        <script src="js/controllers/booksController.js"></script>
+        <script src="js/controllers/loginController.js"></script>
 </body>
 </html>

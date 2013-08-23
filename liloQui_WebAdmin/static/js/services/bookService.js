@@ -1,6 +1,5 @@
-﻿var myModule = angular.module('adminApp', ['ngResource']);
-var BookService = function($resource) {
-    var Book = $resource(
+﻿var BookService = function($resource) {
+    var BookResource = $resource(
             API_URL+"/books/:Id",
             { Id: "@Id" },
             {
@@ -11,16 +10,12 @@ var BookService = function($resource) {
 
     return {
         getBooks: function (params, callback) {
-            var books = Book.query(function () {
-                //_.each(books, function (book) {
-                //    //expect(book instanceof Book).toEqual(true);
-                //});
+            var books = BookResource.query(function () {
                 callback(books);
-
             });
         },
         createBook: function (newBook) {
-            var newBook = new Book(newBook);
+            var newBook = new BookResource(newBook);
             newBook.$save();
         },
         updateBook: function (editBook) {
@@ -28,4 +23,4 @@ var BookService = function($resource) {
         }
     };
 }
-myModule.factory('Book', ['$resource', BookService]);
+angular.module('adminApp').factory('Book', ['$resource', BookService]);

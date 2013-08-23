@@ -37,6 +37,12 @@
     <Content Include="static\js\controllers\booksController.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="static\js\controllers\loginController.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="static\js\models\models.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="static\js\services\bookService.js">
       <SubType>Content</SubType>
     </Content>
@@ -45,6 +51,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="node_modules\" />
+    <Folder Include="node_modules\http\" />
     <Folder Include="static" />
     <Folder Include="static\css" />
     <Folder Include="static\js" />

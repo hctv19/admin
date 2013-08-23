@@ -1,4 +1,9 @@
-﻿#editBookView {
+﻿.login_banner {
+    width: 100%;
+    border: 1px solid black;
+}
+
+#editBookView {
     width: 50%;
 }
 #editBookView fieldset div {

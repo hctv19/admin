@@ -32,19 +32,7 @@ var BooksController = function (Book, $scope, $log) {
         });
     };
 
-    //$scope.fetchBook = function() {
-    //    $http.get(rootUrl + "/books/1").success(function (data) {
-    //        $scope.book = data;
-    //    });
-    //};
-
-    //$scope.fetchContent = function () {
-    //    $http.get(rootUrl + "/books/1/content").success(function (data) {
-    //        $scope.content = data;
-    //    });
-    //};
-
     $scope.fetchBooks();
 };
 
-adminApp.controller('BooksController', ['Book', "$scope","$log", BooksController]);
+angular.module('adminApp').controller('BooksController', ['Book', "$scope", "$log", BooksController]);
