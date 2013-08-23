@@ -1,0 +1,76 @@
+﻿
+<!DOCTYPE html>
+
+<html ng-app="adminApp">
+    <head>
+        <title>LiloQui Admin</title>
+        <link href="css/admin.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div ng-controller="BooksController">
+            <input type="button" ng-click="toggleEditMode()" value="Create Book" />
+            <input type="button" ng-click="fetchToken()" value="Fetch Token" />
+            <input type="button" ng-click="fetchBooks()" value ="Fetch Books" />
+
+            <ul>
+                <li ng-repeat="book in books">
+                    {{book.Name}} <a href="" ng-click="openBookEditor(book.Id);">(edit)</a>
+                </li>
+            </ul>
+
+
+            <div id="editBookView" class="check-element" ng-show="editMode" ng-animate="{show: 'example-show', hide: 'example-hide'}">
+                <h1>Add Book <a href="" ng-click="closeBookEditor();">(close)</a></h1>
+                <fieldset>
+                    <legend>Book Info</legend>
+
+                    <div>
+                        <label for="editBookTitle">Title: </label>
+                        <input id="editBookTitle" type="text" placeholder="Title" ng-model="editBookModel.Name" />
+                    </div>
+
+                    <div>
+                        <label for="editBookCopyrightDate">Copyright Date: </label>
+                        <input id="editBookCopyrightDate" placeholder="Date" ng-model="editBookModel.CopyrightDate" />
+                    </div>
+
+                    <div>
+                        <label for="editBookIsFree">Free?: </label>
+                        <input id="editBookIsFree" type="checkbox" ng-model="editBookModel.IsFree" />
+                    </div>
+
+                    <div>
+                        <label for="editBookPrice" ng-hide="editBook.IsFree">Price ($): </label>
+                        <input id="editBookPrice" ng-hide="editBook.IsFree" type="number" placeholder="Price" ng-model="editBookModel.Price" />
+                    </div>
+
+                    <div>
+                        <label for="editBookShortSummary">Short Summary: </label><br />
+                        <textarea id="editBookShortSummary" placeholder="1 line summary." ng-model="editBookModel.ShortSummary"></textarea>
+                    </div>
+
+                    <div>
+                        <label for="editBookMediumSummary">Medium Summary: </label><br />
+                        <textarea id="editBookMediumSummary" placeholder="A few lines or paragraph describing the book." ng-model="editBookModel.MediumSummary"></textarea>
+                    </div>
+
+                    <div>
+                        <label for="editBookLongSummary">Long Summary: </label><br />
+                        <textarea id="editBookLongSummary" placeholder="A full book synopsis." ng-model="editBookModel.LongSummary"></textarea>
+                    </div>
+
+                    <input type="button" value="Save" ng-click="saveBook()" />
+
+                </fieldset>
+            </div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+        <script src="~/js/underscore.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+        <script src="~/js/angular-resource.js"></script>
+        <script src="~/js/Models/models.js"></script>
+        <script src="~/js/Controllers/app.js"></script>
+        <script src="~/js/Services/bookService.js"></script>
+        <script src="~/js/Controllers/books.js"></script>
+</body>
+</html>
