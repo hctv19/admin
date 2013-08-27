@@ -20,7 +20,8 @@
             </div>
         </div>
 
-        <div ng-controller="BooksController">
+        <!-- Book Administration -->
+        <div data-ng-controller="BooksController">
             <input type="button" ng-click="toggleEditMode()" value="Create Book" />
             <input type="button" ng-click="fetchToken()" value="Fetch Token" />
             <input type="button" ng-click="fetchBooks()" value ="Fetch Books" />
@@ -78,14 +79,24 @@
             </div>
         </div>
         
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+        <!-- Account Administration -->
+        <div data-ng-controller="AccountsController">
+
+
+        </div>
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular-resource.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.1/underscore-min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.1/underscore-min.js"></script>-->
+        <script src="js/lib/angular.min.js"></script>
+        <script src="js/lib/angular-resource.min.js"></script>
+        <script src="js/lib/underscore.min.js"></script>
         <script src="js/app.js"></script>
         <script src="js/models/models.js"></script>
         <script src="js/services/bookService.js"></script>
         <script src="js/services/loginService.js"></script>
+        <script src="js/services/accountService.js"></script>
         <script src="js/controllers/booksController.js"></script>
+        <script src="js/controllers/accountsController.js"></script>
         <script src="js/controllers/loginController.js"></script>
 </body>
 </html>

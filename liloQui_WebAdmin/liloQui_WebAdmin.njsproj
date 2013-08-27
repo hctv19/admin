@@ -34,13 +34,28 @@
     <Content Include="static\js\app.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="static\js\controllers\accountsController.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="static\js\controllers\booksController.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="static\js\controllers\loginController.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="static\js\lib\angular-resource.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="static\js\lib\angular.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="static\js\lib\underscore.min.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="static\js\models\models.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="static\js\services\accountService.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="static\js\services\bookService.js">
@@ -58,6 +73,7 @@
     <Folder Include="static\js" />
     <Folder Include="static\js\models" />
     <Folder Include="static\js\controllers" />
+    <Folder Include="static\js\lib" />
     <Folder Include="static\js\services" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />

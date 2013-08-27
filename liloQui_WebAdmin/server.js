@@ -23,13 +23,19 @@ app.post('/', function (req, res) {
     parser.on('end', function (result) {
 
         var token = result['t:RequestSecurityTokenResponse']['t:RequestedSecurityToken'][0]['wsse:BinarySecurityToken'][0]['_'];
-        var decoded = new Buffer(token, 'base64').toString('ascii');
-        req.session.jwt = decoded;
-        res.redirect('/');
+        if (token) {
+
+            var decoded = new Buffer(token, 'base64').toString('ascii');
+            req.session.jwt = decoded;
+            res.redirect('/');
+        }
+        else {
+            return req.body;
+        }
 
     })
 
-    parser.parseString(req.body['wresult']);
+    //parser.parseString(req.body['wresult']);
 
 });
 
@@ -47,7 +53,7 @@ app.get('/identity_providers', function (req, res) {
     var options = {
         host: 'liloqui.accesscontrol.windows.net',
         port: 443,
-        path: '/v2/metadata/IdentityProviders.js?protocol=wsfederation&realm=http%3a%2f%2flocalhost%2f&reply_to=http%3a%2f%2flocalhost%3a9000%2f&context=&request_id=&version=1.0&callback=',
+        path: '/v2/metadata/IdentityProviders.js?protocol=wsfederation&realm=http%3a%2f%2flocalhost%2f&reply_to=http%3a%2f%2flocalhost%3a8000%2f&context=&request_id=&version=1.0&callback=',
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
